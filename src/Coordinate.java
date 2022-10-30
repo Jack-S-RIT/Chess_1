@@ -1,3 +1,4 @@
+package src;
 
 /**
  * class that represents the coordinates on a chess board
