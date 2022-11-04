@@ -1,7 +1,6 @@
 package src.pieces;
 
-import java.util.HashMap;
-
+import src.Board;
 import src.Coordinate;
 import src.Team;
 
@@ -14,7 +13,7 @@ public abstract class Piece {
      * represents what team the piece is on
      */
     private Team team;
-    
+
     /**
      * the name of the piece
      */
@@ -45,19 +44,46 @@ public abstract class Piece {
 
     /**
      * the pieces representation in the CLI a single letter String
+     * 
      * @return returns a String with a single letter
      */
     public String symbol() {
         return name.charAt(0) + "";
     }
 
-    public abstract boolean isMovePseudoLegal(Coordinate from, Coordinate to, HashMap<Coordinate, Piece> board);
+    /**
+     * determines if a move is pseudo legal given the location of the piece, where
+     * it is moving to, and the state of the board
+     * 
+     * @param from  passes in a coordinate for where the piece is located at
+     * @param to    passes in a coordinate for where the piece is moving to
+     * @param board passes in a hashmap with all the information about other
+     *              piece locations
+     * @return returns true if the piece is allowed to move to the square pseudo
+     *         legally and false other wise
+     */
+    public abstract boolean isMovePseudoLegal(Coordinate from, Coordinate to, Board board);
 
-    public abstract boolean isCoordinateDefended(Coordinate position, Coordinate to, HashMap<Coordinate, Piece> board);
+    /**
+     * determines if a coordinate is defended given the location of the piece, which
+     * coordinate you are checking is defended, and the state of the board
+     * 
+     * @param position passes in a coordinate as the position of the piece
+     * @param defended passes in which coordinate you are checking if its defended
+     * @param board    passes in a hashmap with all the information about other
+     *                 piece locations
+     * @return
+     */
+    public abstract boolean isCoordinateDefended(Coordinate position, Coordinate defended, Board board);
 
     @Override
     public String toString() {
         return team + " " + name;
     }
-    
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

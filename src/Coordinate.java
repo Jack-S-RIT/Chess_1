@@ -23,7 +23,7 @@ public class Coordinate {
     private Team color;
 
     /**
-     * a number that can uniquely a coordinate
+     * an int that can uniquely a coordinate
      */
     private int id;
 
