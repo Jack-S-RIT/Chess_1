@@ -83,7 +83,16 @@ public abstract class Piece {
 
     @Override
     public int hashCode() {
-        return 0;
+        return name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Piece) {
+            Piece other = (Piece) o;
+            return this.team == other.team && this.name.equals(other.name);
+        }
+        return false;
     }
 
 }

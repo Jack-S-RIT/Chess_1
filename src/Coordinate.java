@@ -80,7 +80,7 @@ public class Coordinate {
     public String toString() {
         char fileStr = (char) (file + 65);
         int rankStr = (rank + 1);
-        return fileStr + rankStr + "";
+        return fileStr + "" + rankStr + "";
     }
 
     @Override
